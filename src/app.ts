@@ -16,8 +16,7 @@ app.get('/',(req:Request,res : Response ) => {
 })
 
 const PORT = process.env.PORT;
-const db = 'mongodb://localhost:27017/test';
-
+const db = 'mongodb://mongo:27017/test';
 
 Connect({ db });
 Routes({ app })
