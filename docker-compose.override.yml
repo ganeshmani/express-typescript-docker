@@ -4,7 +4,9 @@ services:
   app:
     container_name: app
     restart: always
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     environment:
       - PORT=4000
     ports:
