@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app:
+    restart: always
+    environment:
+      - PORT=80
+    ports:
+      - "80:80"
+  mongo:
+    ports:
+      - "27017:27017"

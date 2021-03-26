@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    container_name: app
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
