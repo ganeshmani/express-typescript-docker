@@ -1,18 +1,18 @@
-FROM node:10
-
-WORKDIR /usr/src/app
-
-COPY ./package.json .
-
-RUN npm install --production
-
-RUN npm install pm2 -g
-
+FROM node:12.17.0-alpine
+WORKDIR /usr
+COPY package.json ./
+COPY tsconfig.json ./
+COPY src ./src
+RUN ls -a
+RUN npm install
 RUN npm run build
 
-COPY ../dist .
-
-EXPOSE 4000
-
+## this is stage two , where the app actually runs
+FROM node:12.17.0-alpine
+WORKDIR /usr
+COPY package.json ./
+RUN npm install --only=production
+COPY --from=0 /usr/dist .
+RUN npm install pm2 -g
+EXPOSE 80
 CMD ["pm2-runtime","app.js"]
-

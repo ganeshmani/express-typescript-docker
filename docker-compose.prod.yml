@@ -1,12 +1,23 @@
-version: "3"
+version: "3.7"
 
 services:
-  app:
-    restart: always
-    environment:
-      - PORT=80
-    ports:
-      - "80:80"
   mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
     ports:
-      - "27017:27017"
+      - 27017:27017
+  app:
+    container_name: app
+    restart: always
+    build: .
+    env_file: .env    
+    environment: 
+      - PORT=${PORT}
+      - MONGO_URL=${MONGO_URL}
+    ports: 
+      - 4000:80
+    external_links: 
+      - mongo  
+    depends_on:
+      - mongo         

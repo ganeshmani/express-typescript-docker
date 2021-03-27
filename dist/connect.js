@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 exports.default = ({ db }) => {
+    console.log("DB", db);
     const connect = () => {
         mongoose_1.default
-            .connect(db, { useNewUrlParser: true })
+            .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
             .then(() => {
             return console.info(`Successfully connected to ${db}`);
         })

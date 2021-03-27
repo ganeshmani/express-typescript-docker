@@ -14,8 +14,10 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('TS App is Running');
 });
-const PORT = process.env.PORT;
-const db = 'mongodb://mongo:27017/test';
+const PORT = process.env.PORT || 4500;
+const db = 'mongodb://localhost:27017/test';
+console.log("process.env.MONGO_URL", process.env.MONGO_URL);
+console.log("DSDSDSD", process.env.PORT);
 connect_1.default({ db });
 Routes_1.default({ app });
 app.listen(PORT, () => {

@@ -14,13 +14,13 @@
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.7.1",
+    "mongoose": "~5.7.1",
     "tsc": "^1.20150623.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
     "@types/mongodb": "^3.3.3",
-    "@types/mongoose": "^5.5.18",
+    "@types/mongoose": "~5.10.1",
     "@types/node": "^12.7.8",
     "nodemon": "^1.19.2",
     "ts-node": "^8.4.1",

@@ -1,12 +1,14 @@
 FROM node:10
 
-WORKDIR /usr/src/app
+WORKDIR /usr
 
-COPY ./package.json .
+COPY package.json ./
+COPY tsconfig.json ./
 
+COPY src ./src
+RUN ls -a
 RUN npm install
 
-COPY ./ .
+EXPOSE 4005
 
-RUN npm run dev
-
+CMD ["npm","run","dev"]

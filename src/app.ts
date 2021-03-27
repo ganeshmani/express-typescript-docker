@@ -12,12 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/',(req:Request,res : Response ) => {
 
-    res.send('TS App is Running')
+    res.send('TS App is Running Working')
 })
 
-const PORT = process.env.PORT;
-const db = 'mongodb://mongo:27017/test';
-
+const PORT = process.env.PORT || 4500;
+const db = process.env.MONGO_URL || 'mongodb://mongo:27017/test';
+console.log("process.env.MONGO_URL",db)
+console.log("DSDSDSD",process.env.PORT)
 Connect({ db });
 Routes({ app })
 
